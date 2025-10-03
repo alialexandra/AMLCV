@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=vit_week6_cv
-#SBATCH --partition=dgpu
+#SBATCH --partition=acltr
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
