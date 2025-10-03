@@ -6,8 +6,6 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --partition=acltr
-#SBATCH --nodelist=cn7
-#SBATCH --constraint=arch_zen
 #SBATCH --time=20:00:00
 
 module load CUDA/12.1.1
