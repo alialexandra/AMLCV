@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=vit_cifar10_hf
-#SBATCH --output=vit_cifar10_hf_%j.out
-#SBATCH --error=vit_cifar10_hf_%j.err
+#SBATCH --job-name=vit_week6_cv_example
+#SBATCH --output=vit_week6_cv_example_%j.out
+#SBATCH --error=vit_week6_cv_example_%j.err
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
