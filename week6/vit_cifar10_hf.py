@@ -19,8 +19,10 @@ train_ds, val_ds = splits["train"], splits["test"]
 # --- 2. Preprocessing ---
 processor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224")
 
+
+
 def transform(example):
-    inputs = processor(images=example["img"], return_tensors="pt")
+    inputs = processor(images=example["image"], return_tensors="pt")
     inputs["labels"] = example["label"]
     return inputs
 
@@ -34,6 +36,20 @@ model = ViTForImageClassification.from_pretrained(
     num_labels=10,
     ignore_mismatched_sizes=True
 )
+
+
+# Freezee
+# Freezing means setting requires_grad = False on certain layers, which:
+#
+# Prevents gradient computation for those parameters during backpropagation
+#
+# No weight updates occur for frozen layers during training
+#
+# Only the classifier head gets trained (the final layer that maps ViT features to 10 CIFAR-10 classes)
+# print("Freezing backbone layers...")
+# for name, param in model.named_parameters():
+#     if "classifier" not in name:  # Only keep classifier trainable
+#         param.requires_grad = False
 
 # --- 4. Metrics ---
 def compute_metrics(eval_pred):
@@ -100,7 +116,7 @@ plt.savefig("train_loss_curve.png")
 def visualize_attention(model, processor, dataset, save_path="attention_maps.png"):
     model.eval()
     batch = next(iter(dataset))  # take first batch
-    img = batch["img"]
+    img = batch["images"]
 
     # Process image
     inputs = processor(images=img, return_tensors="pt")

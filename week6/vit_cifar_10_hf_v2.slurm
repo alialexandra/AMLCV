@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=vit_week6_cv_example
-#SBATCH --output=vit_week6_cv_example_%j.out
-#SBATCH --error=vit_week6_cv_example_%j.err
+#SBATCH --job-name=vit_cifar_10_hf_v2
+#SBATCH --output=vit_cifar_10_hf_v2_%j.out
+#SBATCH --error=vit_cifar_10_hf_v2_%j.err
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
@@ -18,4 +18,4 @@ module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
 pip install torchvision accelerate datasets transformers --user
 
 
-python vit_cifar10_hf.py
+python vit_cifar10_hf_v2.py
