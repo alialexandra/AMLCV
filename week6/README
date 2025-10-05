@@ -293,4 +293,9 @@ attentions = outputs.attentions
 
 ---
 
-👉 Do you want me to also give you a **mapping table between theory (Transformer concepts like Q, K, V, backbone, classifier) and where they appear in your code**, so you can directly tie lecture → assignment → code?
+
+# Slightly lower but still good options
+learning_rate=1e-4,    # More stable
+learning_rate=3e-4,    # Faster convergence
+
+
