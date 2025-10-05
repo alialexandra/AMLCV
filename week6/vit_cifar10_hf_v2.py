@@ -108,11 +108,21 @@ def compute_metrics(eval_pred):
     acc = accuracy_score(labels, preds)
     return {"accuracy": acc}
 
+
+#args_pretrained_fixed = TrainingArguments(
+    learning_rate=5e-6,      # Much smaller for fine-tuning
+    max_grad_norm=1.0,         # Prevent gradient explosion
+    fp16=False,                # More stability
+    # ... other parameters
+#)
+
 args_pretrained = TrainingArguments(
     output_dir="./results_pretrained",
     evaluation_strategy="epoch",  # CHANGED: eval_strategy -> evaluation_strategy
     save_strategy="epoch",
-    learning_rate=2e-5,
+    learning_rate=5e-6, # smaller for fine tuning
+    max_grad_norm=1,
+    fp16=False,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
     num_train_epochs=3,
