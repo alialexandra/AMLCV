@@ -1,0 +1,226 @@
+Perfect — let’s solve everything step by step clearly.
+
+---
+
+## **a. Number of patches**
+
+We are given:
+
+* Image size: (224 \times 224)
+* Patch size: (16 \times 16)
+* Channels: 3 (doesn’t affect patch count)
+
+Each patch covers (16 \times 16) pixels, so the number of patches along each dimension is:
+
+[
+\frac{224}{16} = 14
+]
+
+Thus, total patches:
+
+[
+14 \times 14 = 196
+]
+
+✅ **Answer:** The image is divided into **196 patches**.
+
+---
+
+## **b. Compute Attention manually**
+
+We have 4 patches:
+
+[
+p_1 = \begin{bmatrix}1 \ 2\end{bmatrix}, ;
+p_2 = \begin{bmatrix}2 \ 0\end{bmatrix}, ;
+p_3 = \begin{bmatrix}0 \ 1\end{bmatrix}, ;
+p_4 = \begin{bmatrix}1 \ 1\end{bmatrix}
+]
+
+And matrices:
+
+[
+W_Q = \begin{bmatrix}1 & 0\0 & 1\end{bmatrix},;
+W_K = \begin{bmatrix}1 & 0\0 & 0\end{bmatrix},;
+W_V = \begin{bmatrix}0 & 0\0 & 1\end{bmatrix}
+]
+
+---
+
+### Step 1: Compute ( q_i, k_i, v_i )
+
+#### For (p_1 = [1, 2]^T):
+
+[
+q_1 = W_Q p_1 = [1, 2]^T
+]
+[
+k_1 = W_K p_1 = [1, 0]^T
+]
+[
+v_1 = W_V p_1 = [0, 2]^T
+]
+
+#### For (p_2 = [2, 0]^T):
+
+[
+q_2 = [2, 0]^T, \quad k_2 = [2, 0]^T, \quad v_2 = [0, 0]^T
+]
+
+#### For (p_3 = [0, 1]^T):
+
+[
+q_3 = [0, 1]^T, \quad k_3 = [0, 0]^T, \quad v_3 = [0, 1]^T
+]
+
+#### For (p_4 = [1, 1]^T):
+
+[
+q_4 = [1, 1]^T, \quad k_4 = [1, 0]^T, \quad v_4 = [0, 1]^T
+]
+
+---
+
+### Step 2: Compute attention scores
+
+[
+\text{score}(i,j) = q_i^T k_j
+]
+
+Compute for each pair:
+
+| i\j      | k₁=[1,0]  | k₂=[2,0]  | k₃=[0,0] | k₄=[1,0] |
+| -------- | --------- | --------- | -------- | -------- |
+| q₁=[1,2] | 1×1+2×0=1 | 1×2+2×0=2 | 0        | 1        |
+| q₂=[2,0] | 2×1+0×0=2 | 2×2+0×0=4 | 0        | 2        |
+| q₃=[0,1] | 0×1+1×0=0 | 0×2+1×0=0 | 0        | 0        |
+| q₄=[1,1] | 1×1+1×0=1 | 1×2+1×0=2 | 0        | 1        |
+
+✅ **Score matrix:**
+
+[
+\begin{bmatrix}
+1 & 2 & 0 & 1\
+2 & 4 & 0 & 2\
+0 & 0 & 0 & 0\
+1 & 2 & 0 & 1
+\end{bmatrix}
+]
+
+---
+
+### Step 3: Compute softmax over each row
+
+Softmax(xᵢ) = e^{xᵢ}/Σ e^{xⱼ}
+
+#### Row 1: [1, 2, 0, 1]
+
+exp = [e¹, e², e⁰, e¹] ≈ [2.718, 7.389, 1, 2.718]
+sum = 13.825
+softmax = [0.197, 0.535, 0.072, 0.197]
+
+#### Row 2: [2, 4, 0, 2]
+
+exp = [7.389, 54.598, 1, 7.389]
+sum = 70.376
+softmax = [0.105, 0.776, 0.014, 0.105]
+
+#### Row 3: [0, 0, 0, 0]
+
+All equal → [0.25, 0.25, 0.25, 0.25]
+
+#### Row 4: [1, 2, 0, 1]
+
+Same as Row 1 → [0.197, 0.535, 0.072, 0.197]
+
+---
+
+### Step 4: Compute output
+
+[
+out_i = \sum_j \text{softmax}(score(i,j)) \cdot v_j
+]
+
+Recall v₁=[0,2], v₂=[0,0], v₃=[0,1], v₄=[0,1].
+
+Now compute:
+
+#### For i=1:
+
+out₁ = 0.197·v₁ + 0.535·v₂ + 0.072·v₃ + 0.197·v₄
+= 0.197·[0,2] + 0.535·[0,0] + 0.072·[0,1] + 0.197·[0,1]
+= [0, 0.197·2 + 0 + 0.072 + 0.197]
+= [0, 0.663]
+
+✅ out₁ = [0, 0.663]
+
+---
+
+#### For i=2:
+
+out₂ = 0.105·v₁ + 0.776·v₂ + 0.014·v₃ + 0.105·v₄
+= [0, 0.105·2 + 0 + 0.014 + 0.105] = [0, 0.329]
+
+✅ out₂ = [0, 0.329]
+
+---
+
+#### For i=3:
+
+out₃ = 0.25·v₁ + 0.25·v₂ + 0.25·v₃ + 0.25·v₄
+= [0, 0.25*(2+0+1+1)] = [0, 1.0]
+
+✅ out₃ = [0, 1.0]
+
+---
+
+#### For i=4:
+
+Same as row 1 → [0, 0.663]
+
+✅ out₄ = [0, 0.663]
+
+---
+
+### ✅ Final Output Vectors
+
+[
+out_1 = [0, 0.663], ;
+out_2 = [0, 0.329], ;
+out_3 = [0, 1.000], ;
+out_4 = [0, 0.663]
+]
+
+---
+
+## **c. Comparison: CNNs, RNNs, Transformers**
+
+| Model           | Strengths                                                  | Weaknesses                                                    | Typical Use                            |
+| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------- |
+| **CNN**         | Local spatial feature extraction, translation invariance   | Struggles with long-range dependencies                        | Image classification, object detection |
+| **RNN**         | Sequential modeling, temporal patterns                     | Vanishing gradients, hard to parallelize                      | Text, speech, sequence prediction      |
+| **Transformer** | Captures global dependencies via attention, parallelizable | Computationally heavy (quadratic attention), needs large data | NLP, Vision (ViT), multimodal tasks    |
+
+---
+
+✅ **Final concise answers:**
+
+**a.** 196 patches
+**b.**
+
+* Score matrix:
+  [
+  \begin{bmatrix}
+  1 & 2 & 0 & 1\
+  2 & 4 & 0 & 2\
+  0 & 0 & 0 & 0\
+  1 & 2 & 0 & 1
+  \end{bmatrix}
+  ]
+* Outputs:
+  (out_1=[0,0.663]), (out_2=[0,0.329]), (out_3=[0,1.0]), (out_4=[0,0.663])
+  **c.** Table above comparing CNNs, RNNs, Transformers.
+
+---
+
+Would you like me to also show how to visualize the attention scores as a heatmap (e.g., in Python/NumPy)?
