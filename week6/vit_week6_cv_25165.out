@@ -1,0 +1,39 @@
+Python version:
+Python 3.11.3
+Torch/TorchVision versions:
+2.1.2 0.16.2+cu121
+Running on cn5.hpc.itu.dk
+Sat Oct  4 10:32:52 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:82:00.0 Off |                    0 |
+| N/A   25C    P0             24W /  250W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+Extracting ./data/cifar-10-python.tar.gz to ./data
+Files already downloaded and verified
+Epoch 1: Train Acc 9.96%, Val Acc 10.34%
+Epoch 2: Train Acc 9.96%, Val Acc 10.34%
+Epoch 3: Train Acc 9.96%, Val Acc 10.34%
+Epoch 4: Train Acc 9.96%, Val Acc 10.34%
+Epoch 5: Train Acc 9.96%, Val Acc 10.34%
+Epoch 6: Train Acc 9.96%, Val Acc 10.34%
+Epoch 7: Train Acc 9.96%, Val Acc 10.34%
+Epoch 8: Train Acc 9.96%, Val Acc 10.34%
+Epoch 9: Train Acc 9.96%, Val Acc 10.34%
+Epoch 10: Train Acc 9.96%, Val Acc 10.34%
+Test Accuracy: 10.00%

@@ -1,0 +1,66 @@
+Requirement already satisfied: transformers in /home/algh/.local/lib/python3.11/site-packages (4.57.0)
+Requirement already satisfied: datasets in /home/algh/.local/lib/python3.11/site-packages (4.1.1)
+Requirement already satisfied: scikit-learn in /home/algh/.local/lib/python3.11/site-packages (1.7.2)
+Requirement already satisfied: filelock in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (3.12.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.34.0 in /home/algh/.local/lib/python3.11/site-packages (from transformers) (0.35.3)
+Requirement already satisfied: numpy>=1.17 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from transformers) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /opt/itu/easybuild/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (6.0)
+Requirement already satisfied: regex!=2019.12.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2023.6.3)
+Requirement already satisfied: requests in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2.31.0)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in /home/algh/.local/lib/python3.11/site-packages (from transformers) (0.22.1)
+Requirement already satisfied: safetensors>=0.4.3 in /home/algh/.local/lib/python3.11/site-packages (from transformers) (0.6.2)
+Requirement already satisfied: tqdm>=4.27 in /home/algh/.local/lib/python3.11/site-packages (from transformers) (4.67.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers) (2023.6.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/algh/.local/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers) (4.15.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /home/algh/.local/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers) (1.1.10)
+Requirement already satisfied: pyarrow>=21.0.0 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (21.0.0)
+Requirement already satisfied: dill<0.4.1,>=0.3.0 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (0.4.0)
+Requirement already satisfied: pandas in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from datasets) (2.0.3)
+Collecting requests (from transformers)
+  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Requirement already satisfied: xxhash in /home/algh/.local/lib/python3.11/site-packages (from datasets) (3.6.0)
+Requirement already satisfied: multiprocess<0.70.17 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (0.70.16)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /home/algh/.local/lib/python3.11/site-packages (from fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (3.12.15)
+Requirement already satisfied: scipy>=1.8.0 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from scikit-learn) (1.11.1)
+Requirement already satisfied: joblib>=1.2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from scikit-learn) (1.2.0)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from scikit-learn) (3.1.0)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (23.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (6.6.4)
+Requirement already satisfied: propcache>=0.2.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (1.20.1)
+Requirement already satisfied: idna>=2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from yarl<2.0,>=1.17.0->aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.9.0,>=2023.1.0->datasets) (3.4)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (3.1.0)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (2023.5.7)
+Requirement already satisfied: python-dateutil>=2.8.2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: six>=1.5 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.16.0)
+Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+Installing collected packages: requests
+Successfully installed requests-2.32.5
+Running on cn12.hpc.itu.dk
+Sat Oct  4 01:15:48 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:AF:00.0 Off |                  Off |
+| 33%   23C    P8              5W /  260W |       1MiB /  49152MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

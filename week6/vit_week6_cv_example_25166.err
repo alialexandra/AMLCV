@@ -1,0 +1,52 @@
+Downloading readme: 0.00B [00:00, ?B/s]Downloading readme: 5.16kB [00:00, 24.7MB/s]
+/home/algh/.local/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+  0%|          | 0/14070 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/algh/computer-vision/exercises/AMLCV/week6/vit_cifar10_hf.py", line 73, in <module>
+    train_results = trainer.train()
+                    ^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/trainer.py", line 1537, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/trainer.py", line 1821, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/algh/.local/lib/python3.11/site-packages/accelerate/data_loader.py", line 448, in __iter__
+    current_batch = next(dataloader_iter)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 2814, in __getitems__
+    batch = self.__getitem__(keys)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 2810, in __getitem__
+    return self._getitem(key)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 2795, in _getitem
+    formatted_output = format_table(
+                       ^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 629, in format_table
+    return formatter(pa_table, query_type=query_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 400, in __call__
+    return self.format_batch(pa_table)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 515, in format_batch
+    return self.transform(batch)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/computer-vision/exercises/AMLCV/week6/vit_cifar10_hf.py", line 23, in transform
+    inputs = processor(images=example["img"], return_tensors="pt")
+                              ~~~~~~~^^^^^^^
+KeyError: 'img'
+  0%|          | 0/14070 [00:00<?, ?it/s]

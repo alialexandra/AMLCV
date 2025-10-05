@@ -1,0 +1,25 @@
+Generating train split:   0%|          | 0/50000 [00:00<?, ? examples/s]Generating train split:   0%|          | 100/50000 [00:00<02:53, 288.38 examples/s]Generating train split:  28%|██▊       | 14200/50000 [00:00<00:01, 24996.20 examples/s]Generating train split:  57%|█████▋    | 28400/50000 [00:00<00:00, 33519.60 examples/s]Generating train split:  85%|████████▌ | 42600/50000 [00:01<00:00, 45390.63 examples/s]Generating train split: 100%|██████████| 50000/50000 [00:02<00:00, 21689.47 examples/s]
+Generating test split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating test split:   1%|          | 100/10000 [00:00<00:19, 501.71 examples/s]Generating test split: 100%|██████████| 10000/10000 [00:00<00:00, 19639.03 examples/s]
+/home/algh/.local/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/algh/computer-vision/exercises/AMLCV/week6/vit_cifar10_hf.py", line 46, in <module>
+    training_args = TrainingArguments(
+                    ^^^^^^^^^^^^^^^^^^
+  File "<string>", line 121, in __init__
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/training_args.py", line 1493, in __post_init__
+    and (self.device.type != "cuda")
+         ^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/training_args.py", line 1941, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/utils/generic.py", line 54, in __get__
+    cached = self.fget(obj)
+             ^^^^^^^^^^^^^^
+  File "/home/algh/.local/lib/python3.11/site-packages/transformers/training_args.py", line 1841, in _setup_devices
+    raise ImportError(
+ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.20.1`: Please run `pip install transformers[torch]` or `pip install accelerate -U`
