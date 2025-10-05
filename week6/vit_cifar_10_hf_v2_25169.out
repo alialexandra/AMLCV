@@ -1,0 +1,115 @@
+Requirement already satisfied: torchvision in /home/algh/.local/lib/python3.11/site-packages (0.16.2)
+Requirement already satisfied: accelerate in /home/algh/.local/lib/python3.11/site-packages (0.25.0)
+Requirement already satisfied: datasets in /home/algh/.local/lib/python3.11/site-packages (2.18.0)
+Requirement already satisfied: transformers in /home/algh/.local/lib/python3.11/site-packages (4.36.2)
+Requirement already satisfied: numpy in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from torchvision) (1.25.1)
+Requirement already satisfied: requests in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: torch==2.1.2 in /opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from torchvision) (2.1.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/itu/easybuild/software/Pillow/10.0.0-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (10.0.0)
+Requirement already satisfied: filelock in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.12.2)
+Requirement already satisfied: typing-extensions in /home/algh/.local/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (4.15.0)
+Requirement already satisfied: sympy in /opt/itu/easybuild/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (1.12)
+Requirement already satisfied: networkx in /opt/itu/easybuild/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1)
+Requirement already satisfied: jinja2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1.2)
+Requirement already satisfied: fsspec in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (2023.6.0)
+Requirement already satisfied: packaging>=20.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (23.1)
+Requirement already satisfied: psutil in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (5.9.5)
+Requirement already satisfied: pyyaml in /opt/itu/easybuild/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (6.0)
+Requirement already satisfied: huggingface-hub in /home/algh/.local/lib/python3.11/site-packages (from accelerate) (0.35.3)
+Requirement already satisfied: safetensors>=0.3.1 in /home/algh/.local/lib/python3.11/site-packages (from accelerate) (0.6.2)
+Requirement already satisfied: pyarrow>=12.0.0 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (21.0.0)
+Requirement already satisfied: pyarrow-hotfix in /home/algh/.local/lib/python3.11/site-packages (from datasets) (0.7)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (0.3.8)
+Requirement already satisfied: pandas in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from datasets) (2.0.3)
+Requirement already satisfied: tqdm>=4.62.1 in /home/algh/.local/lib/python3.11/site-packages (from datasets) (4.67.1)
+Requirement already satisfied: xxhash in /home/algh/.local/lib/python3.11/site-packages (from datasets) (3.6.0)
+Requirement already satisfied: multiprocess in /home/algh/.local/lib/python3.11/site-packages (from datasets) (0.70.16)
+Requirement already satisfied: aiohttp in /home/algh/.local/lib/python3.11/site-packages (from datasets) (3.12.15)
+Requirement already satisfied: regex!=2019.12.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2023.6.3)
+Requirement already satisfied: tokenizers<0.19,>=0.14 in /home/algh/.local/lib/python3.11/site-packages (from transformers) (0.15.2)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /home/algh/.local/lib/python3.11/site-packages (from huggingface-hub->accelerate) (1.1.10)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from aiohttp->datasets) (23.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (6.6.4)
+Requirement already satisfied: propcache>=0.2.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/algh/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.20.1)
+Requirement already satisfied: idna>=2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from yarl<2.0,>=1.17.0->aiohttp->datasets) (3.4)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (3.1.0)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (2023.5.7)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch==2.1.2->torchvision) (2.1.3)
+Requirement already satisfied: python-dateutil>=2.8.2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: six>=1.5 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.16.0)
+Requirement already satisfied: mpmath>=0.19 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch==2.1.2->torchvision) (1.3.0)
+Loading CIFAR-10 dataset...
+Train: 45000 | Val: 5000 | Test: 10000
+Testing dataset...
+Sample keys: ['pixel_values', 'labels']
+Pixel values shape: torch.Size([3, 224, 224])
+Label: tensor(4)
+
+Loading pretrained ViT model...
+Backbone frozen. Only classifier layer will be fine-tuned.
+Trainable parameters: 7,690/85,806,346 (0.01%)
+
+Training pretrained ViT (fine-tuning)...
+{'loss': 1382733045563.392, 'learning_rate': 1.904065235639765e-05, 'epoch': 0.18}
+{'loss': 1398685225189.376, 'learning_rate': 1.7841467801894716e-05, 'epoch': 0.36}
+{'loss': 1343825473699.84, 'learning_rate': 1.6642283247391776e-05, 'epoch': 0.53}
+{'loss': 1351821763280.896, 'learning_rate': 1.5443098692888837e-05, 'epoch': 0.71}
+{'loss': 1437883781087.232, 'learning_rate': 1.42439141383859e-05, 'epoch': 0.89}
+{'eval_loss': 1364496351232.0, 'eval_accuracy': 0.6934, 'eval_runtime': 38.7803, 'eval_samples_per_second': 128.932, 'eval_steps_per_second': 8.071, 'epoch': 1.0}
+{'loss': 1307132225912.832, 'learning_rate': 1.304472958388296e-05, 'epoch': 1.07}
+{'loss': 1379421223124.992, 'learning_rate': 1.1845545029380024e-05, 'epoch': 1.24}
+{'loss': 1393979283210.24, 'learning_rate': 1.0646360474877085e-05, 'epoch': 1.42}
+{'loss': 1365754234535.936, 'learning_rate': 9.447175920374147e-06, 'epoch': 1.6}
+{'loss': 1394282481057.792, 'learning_rate': 8.24799136587121e-06, 'epoch': 1.78}
+{'loss': 1357958466240.512, 'learning_rate': 7.048806811368271e-06, 'epoch': 1.96}
+{'eval_loss': 1363351175168.0, 'eval_accuracy': 0.7242, 'eval_runtime': 38.7829, 'eval_samples_per_second': 128.923, 'eval_steps_per_second': 8.071, 'epoch': 2.0}
+{'loss': 1335037970612.224, 'learning_rate': 5.8496222568653315e-06, 'epoch': 2.13}
+{'loss': 1357220000301.056, 'learning_rate': 4.650437702362394e-06, 'epoch': 2.31}
+{'loss': 1405240687460.352, 'learning_rate': 3.451253147859456e-06, 'epoch': 2.49}
+{'loss': 1345191004864.512, 'learning_rate': 2.2520685933565178e-06, 'epoch': 2.67}
+{'loss': 1349736154005.504, 'learning_rate': 1.0528840388535797e-06, 'epoch': 2.84}
+{'eval_loss': 1362969231360.0, 'eval_accuracy': 0.73, 'eval_runtime': 38.7794, 'eval_samples_per_second': 128.934, 'eval_steps_per_second': 8.071, 'epoch': 3.0}
+{'train_runtime': 1205.6871, 'train_samples_per_second': 111.969, 'train_steps_per_second': 6.999, 'train_loss': 1370625235597.0593, 'epoch': 3.0}
+
+Pretrained model test accuracy: 0.7232
+
+Training ViT from scratch for comparison...
+{'loss': 2.2117, 'learning_rate': 0.00018815025476952245, 'epoch': 0.18}
+{'loss': 2.1444, 'learning_rate': 0.0001763005095390449, 'epoch': 0.36}
+{'loss': 2.0772, 'learning_rate': 0.00016445076430856738, 'epoch': 0.53}
+{'loss': 2.0628, 'learning_rate': 0.00015260101907808984, 'epoch': 0.71}
+{'loss': 2.0079, 'learning_rate': 0.00014075127384761228, 'epoch': 0.89}
+{'eval_loss': 1.9634159803390503, 'eval_accuracy': 0.2456, 'eval_runtime': 38.7655, 'eval_samples_per_second': 128.981, 'eval_steps_per_second': 8.074, 'epoch': 1.0}
+{'loss': 1.9763, 'learning_rate': 0.00012890152861713474, 'epoch': 1.07}
+{'loss': 1.9643, 'learning_rate': 0.0001170517833866572, 'epoch': 1.24}
+{'loss': 1.9116, 'learning_rate': 0.00010520203815617963, 'epoch': 1.42}
+{'loss': 1.8769, 'learning_rate': 9.33522929257021e-05, 'epoch': 1.6}
+{'loss': 1.8463, 'learning_rate': 8.150254769522455e-05, 'epoch': 1.78}
+{'loss': 1.7972, 'learning_rate': 6.965280246474701e-05, 'epoch': 1.96}
+{'eval_loss': 1.7450354099273682, 'eval_accuracy': 0.3514, 'eval_runtime': 38.894, 'eval_samples_per_second': 128.555, 'eval_steps_per_second': 8.048, 'epoch': 2.0}
+{'loss': 1.7435, 'learning_rate': 5.7803057234269463e-05, 'epoch': 2.13}
+{'loss': 1.714, 'learning_rate': 4.595331200379192e-05, 'epoch': 2.31}
+{'loss': 1.6716, 'learning_rate': 3.410356677331438e-05, 'epoch': 2.49}
+{'loss': 1.6237, 'learning_rate': 2.225382154283683e-05, 'epoch': 2.67}
+{'loss': 1.5855, 'learning_rate': 1.0404076312359285e-05, 'epoch': 2.84}
+{'eval_loss': 1.559195876121521, 'eval_accuracy': 0.4246, 'eval_runtime': 38.8083, 'eval_samples_per_second': 128.838, 'eval_steps_per_second': 8.065, 'epoch': 3.0}
+{'train_runtime': 2213.5339, 'train_samples_per_second': 60.988, 'train_steps_per_second': 3.812, 'train_loss': 1.8716201321154018, 'epoch': 3.0}
+
+Scratch model test accuracy: 0.4307
+
+Generating comparison plot...
+Generating attention visualization...
+Attention visualization failed: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same or input should be a MKLDNN tensor and weight is a dense tensor
+
+========== SUMMARY ==========
+Fine-tuned ViT accuracy: 0.7232
+Scratch ViT accuracy:    0.4307
+=============================
+All results and plots saved in current directory.
