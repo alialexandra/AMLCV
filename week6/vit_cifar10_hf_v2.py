@@ -110,12 +110,12 @@ def compute_metrics(eval_pred):
 
 args_pretrained = TrainingArguments(
     output_dir="./results_pretrained",
-    eval_strategy="epoch",
+    evaluation_strategy="epoch",  # CHANGED: eval_strategy -> evaluation_strategy
     save_strategy="epoch",
     learning_rate=2e-5,
-    per_device_train_batch_size=16,  # Reduced for stability
+    per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
-    num_train_epochs=3,  # Reduced for faster training
+    num_train_epochs=3,
     weight_decay=0.01,
     warmup_steps=100,
     logging_dir="./logs_pretrained",
@@ -123,7 +123,7 @@ args_pretrained = TrainingArguments(
     metric_for_best_model="accuracy",
     report_to=None,
     dataloader_pin_memory=False,
-    remove_unused_columns=False,  # Important: don't remove columns
+    remove_unused_columns=False,
 )
 
 trainer_pretrained = Trainer(
@@ -159,7 +159,7 @@ model_scratch = ViTForImageClassification(config)
 
 args_scratch = TrainingArguments(
     output_dir="./results_scratch",
-    eval_strategy="epoch",
+    evaluation_strategy="epoch",  # CHANGED: eval_strategy -> evaluation_strategy
     save_strategy="epoch",
     learning_rate=2e-4,
     per_device_train_batch_size=16,
