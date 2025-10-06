@@ -1,0 +1,236 @@
+Of course! Let's go step-by-step.
+
+---
+
+## **a. Number of Patches Calculation**
+
+**Given:**
+- Image size: \(224 \times 224\)
+- Patch size: \(16 \times 16\)
+- Channels: 3
+
+**Step 1:**
+Number of patches along height:
+\[
+\frac{224}{16} = 14
+\]
+Number of patches along width:
+\[
+\frac{224}{16} = 14
+\]
+
+**Step 2:**
+Total patches:
+\[
+14 \times 14 = 196
+\]
+
+**Answer:**
+\[
+\boxed{196}
+\]
+
+---
+
+## **b. Attention Computation**
+
+We have:
+
+\[
+p_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \quad
+p_2 = \begin{bmatrix} 2 \\ 0 \end{bmatrix}, \quad
+p_3 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad
+p_4 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\]
+
+\[
+W_Q = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}, \quad
+W_K = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \quad
+W_V = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}
+\]
+
+---
+
+### **1. Compute Queries \(q_i = W_Q p_i\)**
+
+Since \(W_Q = I\) (identity),
+\[
+q_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \quad
+q_2 = \begin{bmatrix} 2 \\ 0 \end{bmatrix}, \quad
+q_3 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad
+q_4 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\]
+
+---
+
+### **2. Compute Keys \(k_i = W_K p_i\)**
+
+\[
+W_K p = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x \\ 0 \end{bmatrix}
+\]
+
+So:
+\[
+k_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad
+k_2 = \begin{bmatrix} 2 \\ 0 \end{bmatrix}, \quad
+k_3 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \quad
+k_4 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+\]
+
+---
+
+### **3. Compute Values \(v_i = W_V p_i\)**
+
+\[
+W_V p = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ y \end{bmatrix}
+\]
+
+So:
+\[
+v_1 = \begin{bmatrix} 0 \\ 2 \end{bmatrix}, \quad
+v_2 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \quad
+v_3 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad
+v_4 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+\]
+
+---
+
+### **4. Compute Attention Scores \( \text{score}(i, j) = q_i^T k_j \)**
+
+Since \(k_j\) has second component 0,
+\[
+q_i^T k_j = q_{i,1} \cdot k_{j,1}
+\]
+because \(k_{j,2} = 0\).
+
+Let’s compute systematically:
+
+- \( \text{score}(1,1) = 1 \times 1 = 1 \)
+- \( \text{score}(1,2) = 1 \times 2 = 2 \)
+- \( \text{score}(1,3) = 1 \times 0 = 0 \)
+- \( \text{score}(1,4) = 1 \times 1 = 1 \)
+
+- \( \text{score}(2,1) = 2 \times 1 = 2 \)
+- \( \text{score}(2,2) = 2 \times 2 = 4 \)
+- \( \text{score}(2,3) = 2 \times 0 = 0 \)
+- \( \text{score}(2,4) = 2 \times 1 = 2 \)
+
+- \( \text{score}(3,1) = 0 \times 1 = 0 \)
+- \( \text{score}(3,2) = 0 \times 2 = 0 \)
+- \( \text{score}(3,3) = 0 \times 0 = 0 \)
+- \( \text{score}(3,4) = 0 \times 1 = 0 \)
+
+- \( \text{score}(4,1) = 1 \times 1 = 1 \)
+- \( \text{score}(4,2) = 1 \times 2 = 2 \)
+- \( \text{score}(4,3) = 1 \times 0 = 0 \)
+- \( \text{score}(4,4) = 1 \times 1 = 1 \)
+
+So score matrix (row \(i\), col \(j\)):
+
+\[
+S = \begin{bmatrix}
+1 & 2 & 0 & 1 \\
+2 & 4 & 0 & 2 \\
+0 & 0 & 0 & 0 \\
+1 & 2 & 0 & 1
+\end{bmatrix}
+\]
+
+---
+
+### **5. Softmax over Rows**
+
+Apply softmax row-wise:
+\[
+\text{softmax}([x_1, x_2, x_3, x_4]) = \left[ \frac{e^{x_1}}{\sum e^{x_j}}, \frac{e^{x_2}}{\sum e^{x_j}}, \frac{e^{x_3}}{\sum e^{x_j}}, \frac{e^{x_4}}{\sum e^{x_j}} \right]
+\]
+
+- **Row 1:** \([1, 2, 0, 1]\)
+Sum = \(e^1 + e^2 + e^0 + e^1 = e + e^2 + 1 + e\)
+\(= 1 + 2e + e^2\)
+Numerically: \(e \approx 2.718\), \(e^2 \approx 7.389\)
+Sum \(\approx 1 + 5.436 + 7.389 = 13.825\)
+Softmax:
+\([e^1, e^2, e^0, e^1]/13.825 \approx [0.197, 0.534, 0.072, 0.197]\)
+
+- **Row 2:** \([2, 4, 0, 2]\)
+Sum = \(e^2 + e^4 + e^0 + e^2 = 1 + 2e^2 + e^4\)
+\(e^4 \approx 54.598\)
+Sum \(\approx 1 + 2\times7.389 + 54.598 = 1 + 14.778 + 54.598 = 70.376\)
+Softmax:
+\([e^2, e^4, e^0, e^2]/70.376 \approx [0.105, 0.776, 0.014, 0.105]\)
+
+- **Row 3:** \([0, 0, 0, 0]\)
+Softmax = \([1/4, 1/4, 1/4, 1/4] = [0.25, 0.25, 0.25, 0.25]\)
+
+- **Row 4:** same as Row 1: \([0.197, 0.534, 0.072, 0.197]\)
+
+So attention weight matrix \(A\):
+
+\[
+A \approx \begin{bmatrix}
+0.197 & 0.534 & 0.072 & 0.197 \\
+0.105 & 0.776 & 0.014 & 0.105 \\
+0.25 & 0.25 & 0.25 & 0.25 \\
+0.197 & 0.534 & 0.072 & 0.197
+\end{bmatrix}
+\]
+
+---
+
+### **6. Weighted Sum of Values**
+
+\[
+\text{out}_i = \sum_{j=1}^4 A_{ij} v_j
+\]
+
+Recall \(v_1 = [0,2]^T\), \(v_2 = [0,0]^T\), \(v_3 = [0,1]^T\), \(v_4 = [0,1]^T\).
+
+- **out₁** = \(0.197 v_1 + 0.534 v_2 + 0.072 v_3 + 0.197 v_4\)
+= \(0.197 [0,2] + 0.534 [0,0] + 0.072 [0,1] + 0.197 [0,1]\)
+y-component = \(0.394 + 0 + 0.072 + 0.197 = 0.663\)
+x-component = 0
+So \( \text{out}_1 \approx [0, 0.663]^T \)
+
+- **out₂** = \(0.105 v_1 + 0.776 v_2 + 0.014 v_3 + 0.105 v_4\)
+y-component = \(0.105\times 2 + 0 + 0.014\times 1 + 0.105\times 1\)
+= \(0.210 + 0 + 0.014 + 0.105 = 0.329\)
+x-component = 0
+So \( \text{out}_2 \approx [0, 0.329]^T \)
+
+- **out₃** = \(0.25 v_1 + 0.25 v_2 + 0.25 v_3 + 0.25 v_4\)
+y-component = \(0.25\times 2 + 0 + 0.25\times 1 + 0.25\times 1\)
+= \(0.5 + 0 + 0.25 + 0.25 = 1.0\)
+x-component = 0
+So \( \text{out}_3 = [0, 1.0]^T \)
+
+- **out₄** = same as out₁: \([0, 0.663]^T\)
+
+Final outputs:
+\[
+\text{out}_1 \approx \begin{bmatrix} 0 \\ 0.663 \end{bmatrix}, \quad
+\text{out}_2 \approx \begin{bmatrix} 0 \\ 0.329 \end{bmatrix}, \quad
+\text{out}_3 = \begin{bmatrix} 0 \\ 1.0 \end{bmatrix}, \quad
+\text{out}_4 \approx \begin{bmatrix} 0 \\ 0.663 \end{bmatrix}
+\]
+
+---
+
+## **c. Comparison Table: CNNs vs RNNs vs Transformers**
+
+| **Property**          | **CNN**                          | **RNN**                          | **Transformer**                  |
+|------------------------|----------------------------------|----------------------------------|----------------------------------|
+| **Input Handling**     | Local spatial patterns           | Sequential data                  | Entire sequence at once          |
+| **Parallelization**    | High (within a layer)            | Low (sequential dependency)      | High (self-attention)            |
+| **Long-range Deps.**   | Limited (receptive field)        | Struggles (vanishing gradient)   | Excellent (global attention)     |
+| **Translation Invariance** | Yes (via convolution)          | No                               | No (position encoding needed)    |
+| **Computational Cost** | Moderate                         | Moderate                         | High (quadratic in seq length)   |
+| **Use Cases**          | Image classification, CV         | Time series, text generation (old) | NLP, vision, multi-modal tasks   |
+| **Memory (training)**  | Moderate                         | Moderate                         | High (stores all attention maps) |
+
+---
+
+**Final Answers Summary:**
+- a. **196 patches**
+- b. See detailed computation above
+- c. See comparison table
