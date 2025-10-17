@@ -5,6 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
+   .idea/
+        week6/=0.26.0
+        week6/data/
+        week6/logs/
+        week6/logs_pretrained/
+        week6/test-cifar-10/
 
 # Distribution / packaging
 .Python
