@@ -4,7 +4,6 @@
 #SBATCH --gres=gpu:A100:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --time=14:00:00
 
 #SBATCH --partition=cores_any
 
