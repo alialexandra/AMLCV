@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=cifar_latent
 #SBATCH --output=cifar_latent_%j.out
-#SBATCH --gres=gpu:A100:1
+#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --partition=cores_any
