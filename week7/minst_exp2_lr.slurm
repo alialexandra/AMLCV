@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=cifar_lr
-#SBATCH --output=cifar_lr_%j.out
+#SBATCH --job-name=minst_df
+#SBATCH --output=minst_df_lr_%j.out
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=scavenge

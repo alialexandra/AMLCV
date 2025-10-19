@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=cifar_latent
-#SBATCH --output=cifar_latent_%j.out
+#SBATCH --job-name=minst_arch
+#SBATCH --output=minst_arch_%j.out
 #SBATCH --cpus-per-task=8
 
 #SBATCH --partition=scavenge

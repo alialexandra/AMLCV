@@ -16,7 +16,7 @@ exp_name = os.getenv("EXP_NAME", None)
 
 timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 exp_name = exp_name or f"mnist_lrG{lr_g}_lrD{lr_d}_z{latent_dim}_bs{batch_size}_{arch_variant}_{timestamp}"
-output_dir = os.path.join("results_mnist", exp_name)
+output_dir = os.path.join("results_mnist_arch", exp_name)
 os.makedirs(output_dir, exist_ok=True)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
