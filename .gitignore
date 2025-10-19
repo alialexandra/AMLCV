@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+*.pt
+*.pth
+*.pkl
+*.bin
+
+
 # C extensions
 *.so
    .idea/
