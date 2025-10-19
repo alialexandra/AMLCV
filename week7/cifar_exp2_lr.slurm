@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=cifar_lr
 #SBATCH --output=cifar_lr_%j.out
-#SBATCH --gres=gpu:A100:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=14:00:00
