@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 latent_dim = int(os.getenv("LATENT_DIM", 100))
-batch_size = int(os.getenv("BATCH_SIZE", 64))
+batch_size = int(os.getenv("BATCH_SIZE", 256))
 lr_g = float(os.getenv("LR_G", 0.0002))
 lr_d = float(os.getenv("LR_D", 0.0002))
-epochs = int(os.getenv("EPOCHS", 10))
+epochs = int(os.getenv("EPOCHS", 50))
 arch_variant = os.getenv("ARCH", "base")
 exp_name = os.getenv("EXP_NAME", None)
 
