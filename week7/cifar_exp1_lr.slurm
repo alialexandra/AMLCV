@@ -4,7 +4,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 
-#SBATCH --partition=scavange
+#SBATCH --partition=scavenge
 
 
 

@@ -3,7 +3,7 @@
 #SBATCH --output=cifar_latent_%j.out
 #SBATCH --cpus-per-task=8
 
-#SBATCH --partition=scavange
+#SBATCH --partition=scavenge
 
 module purge
 module load CUDA/12.1.1
