@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=14:00:00
+#SBATCH --partition=cores_any
 
 module purge
 module load CUDA/12.1.1
