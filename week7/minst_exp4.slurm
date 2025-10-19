@@ -2,6 +2,7 @@
 #SBATCH --job-name=minst_arch
 #SBATCH --output=minst_arch_%j.out
 #SBATCH --cpus-per-task=8
+#SBATCH --time=4:00:00
 
 #SBATCH --partition=scavenge
 
