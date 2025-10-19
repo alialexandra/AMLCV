@@ -25,7 +25,7 @@ print(f"[MNIST] Using device: {device}, arch={arch_variant}, saving to {output_d
 class Generator(nn.Module):
     def __init__(self,latent_dim):
         super().__init__()
-        ch=[256,128] if arch_variant=="bigger" else [128,64]
+        ch=[128,64]
         self.model=nn.Sequential(
             nn.Linear(latent_dim,ch[0]*7*7),
             nn.ReLU(True),
@@ -43,15 +43,15 @@ class Generator(nn.Module):
 class Discriminator(nn.Module):
     def __init__(self):
         super().__init__()
-        m=1 if arch_variant=="base" else 2
+
         self.model=nn.Sequential(
-            nn.Conv2d(1,32*m,3,2,1),
+            nn.Conv2d(1,32,3,2,1),
             nn.LeakyReLU(0.2),
-            nn.Conv2d(32*m,64*m,3,2,1),
-            nn.BatchNorm2d(64*m),
+            nn.Conv2d(32,64,3,2,1),
+            nn.BatchNorm2d(64),
             nn.LeakyReLU(0.2),
             nn.Flatten(),
-            nn.Linear(64*m*7*7,1),
+            nn.Linear(64*7*7,1),
             nn.Sigmoid()
         )
     def forward(self,x): return self.model(x)

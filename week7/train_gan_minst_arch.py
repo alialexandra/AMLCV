@@ -31,13 +31,12 @@ class Generator(nn.Module):
             nn.Linear(latent_dim, ch[0] * 7 * 7),
             nn.ReLU(True),
             nn.Unflatten(1, (ch[0], 7, 7)),
-            nn.Upsample(scale_factor=2),  # 7x7 -> 14x14
+            nn.Upsample(scale_factor=2),
 
-            # FIXED: Remove the duplicate layers that had wrong input channels
             nn.Conv2d(ch[0], ch[1], 3, padding=1),
             nn.BatchNorm2d(ch[1]),
             nn.ReLU(True),
-            nn.Upsample(scale_factor=2),  # 14x14 -> 28x28
+            nn.Upsample(scale_factor=2),
 
             nn.Conv2d(ch[1], 1, 3, padding=1),
             nn.Tanh()
@@ -60,7 +59,7 @@ class Discriminator(nn.Module):
             nn.BatchNorm2d(64 * m),
             nn.LeakyReLU(0.2),
 
-            # FIXED: Remove the duplicate layers that had wrong input channels
+
             nn.Flatten(),
             nn.Linear(64 * m * 7 * 7, 1),
             nn.Sigmoid()
@@ -166,4 +165,4 @@ for epoch in range(epochs):
             'optD': opt_D.state_dict()
         }, f"{output_dir}/checkpoint_epoch{epoch + 1:03d}.pt")
 
-print(f"✅ Training completed! Results saved to {output_dir}")
+print(f" Training completed! Results saved to {output_dir}")

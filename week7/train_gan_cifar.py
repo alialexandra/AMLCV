@@ -28,7 +28,7 @@ print(f"[CIFAR] Using device: {device}, arch={arch_variant}, saving to {output_d
 class Generator(nn.Module):
     def __init__(self, latent_dim):
         super().__init__()
-        channels = [256,128,64] if arch_variant == "bigger" else [128,128,64]
+        channels = [128,128,64]
         self.model = nn.Sequential(
             nn.Linear(latent_dim, channels[0]*8*8),
             nn.ReLU(True),
@@ -49,20 +49,20 @@ class Generator(nn.Module):
 class Discriminator(nn.Module):
     def __init__(self):
         super().__init__()
-        mult = 1 if arch_variant=="base" else 2
+
         self.model = nn.Sequential(
-            nn.Conv2d(3, 32*mult, 3, 2, 1),
+            nn.Conv2d(3, 32, 3, 2, 1),
             nn.LeakyReLU(0.2),
             nn.Dropout(0.25),
-            nn.Conv2d(32*mult, 64*mult, 3, 2, 1),
-            nn.BatchNorm2d(64*mult),
+            nn.Conv2d(32, 64, 3, 2, 1),
+            nn.BatchNorm2d(64),
             nn.LeakyReLU(0.2),
             nn.Dropout(0.25),
-            nn.Conv2d(64*mult,128*mult,3,2,1),
-            nn.BatchNorm2d(128*mult),
+            nn.Conv2d(64,128,3,2,1),
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2),
             nn.Flatten(),
-            nn.Linear(128*mult*4*4,1),
+            nn.Linear(128*4*4,1),
             nn.Sigmoid()
         )
     def forward(self,x): return self.model(x)
