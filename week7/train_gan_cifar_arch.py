@@ -28,7 +28,7 @@ print(f"[CIFAR] Using device: {device}, arch={arch_variant}, saving to {output_d
 class Generator(nn.Module):
     def __init__(self, latent_dim):
         super().__init__()
-        channels = [256,128,64] if arch_variant == "bigger" else [128,128,64]
+        channels = [256,128,64]
         self.model = nn.Sequential(
             nn.Linear(latent_dim, channels[0]*8*8),
             nn.ReLU(True),
@@ -40,16 +40,17 @@ class Generator(nn.Module):
             nn.ReLU(),
 
             nn.Upsample(scale_factor=2),
-
             nn.Conv2d(channels[0], channels[1], 3, padding=1),
             nn.BatchNorm2d(channels[1]),
             nn.ReLU(True),
-            nn.Upsample(scale_factor=2),
 
-            # last layer
+            # Block 2 - 16x16 -> 32x32
+            nn.Upsample(scale_factor=2),
             nn.Conv2d(channels[1], channels[2], 3, padding=1),
             nn.BatchNorm2d(channels[2]),
             nn.ReLU(True),
+
+            # last layer
             nn.Conv2d(channels[2], 3, 3, padding=1),
             nn.Tanh()
         )
@@ -58,17 +59,17 @@ class Generator(nn.Module):
 class Discriminator(nn.Module):
     def __init__(self):
         super().__init__()
-        mult = 1 if arch_variant=="base" else 2
+        mult = 2
         self.model = nn.Sequential(
             nn.Conv2d(3, 32*mult, 3, 2, 1),
             nn.LeakyReLU(0.2),
             nn.Dropout(0.25),
 
             # remove one layer
-            # nn.Conv2d(32*mult, 64*mult, 3, 2, 1),
-            # nn.BatchNorm2d(64*mult),
-            # nn.LeakyReLU(0.2),
-            # nn.Dropout(0.25),
+            nn.Conv2d(32*mult, 64*mult, 3, 2, 1),
+            nn.BatchNorm2d(64*mult),
+            nn.LeakyReLU(0.2),
+            nn.Dropout(0.25),
 
             nn.Conv2d(64*mult,128*mult,3,2,1),
             nn.BatchNorm2d(128*mult),
