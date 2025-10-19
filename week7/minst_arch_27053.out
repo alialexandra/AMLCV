@@ -1,0 +1,86 @@
+Requirement already satisfied: torchvision in /home/algh/.local/lib/python3.11/site-packages (0.16.2)
+Requirement already satisfied: numpy in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from torchvision) (1.25.1)
+Requirement already satisfied: requests in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: torch==2.1.2 in /opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from torchvision) (2.1.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/itu/easybuild/software/Pillow/10.0.0-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (10.0.0)
+Requirement already satisfied: filelock in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.12.2)
+Requirement already satisfied: typing-extensions in /home/algh/.local/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (4.15.0)
+Requirement already satisfied: sympy in /opt/itu/easybuild/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (1.12)
+Requirement already satisfied: networkx in /opt/itu/easybuild/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1)
+Requirement already satisfied: jinja2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1.2)
+Requirement already satisfied: fsspec in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (2023.6.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch==2.1.2->torchvision) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (2023.5.7)
+Requirement already satisfied: mpmath>=0.19 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch==2.1.2->torchvision) (1.3.0)
+/home/algh/.local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/algh/.local/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c106detail23torchInternalAssertFailEPKcS2_jS2_RKSs'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+[MNIST] Using device: cpu, arch=base, saving to results_mnist_arch/mnist_lrG0.0002_lrD0.0002_z200_bs256_base_20251019_174231
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz to ./data_mnist/MNIST/raw/train-images-idx3-ubyte.gz
+  0%|          | 0/9912422 [00:00<?, ?it/s]  1%|          | 98304/9912422 [00:00<00:18, 525798.34it/s]  4%|▍         | 393216/9912422 [00:00<00:08, 1125974.17it/s] 13%|█▎        | 1245184/9912422 [00:00<00:02, 3392478.46it/s] 25%|██▌       | 2523136/9912422 [00:00<00:01, 6250276.97it/s] 33%|███▎      | 3309568/9912422 [00:00<00:01, 5185212.94it/s] 63%|██████▎   | 6291456/9912422 [00:00<00:00, 11336010.81it/s] 78%|███████▊  | 7733248/9912422 [00:01<00:00, 9708405.06it/s]  97%|█████████▋| 9568256/9912422 [00:01<00:00, 11698408.41it/s]100%|██████████| 9912422/9912422 [00:01<00:00, 7845663.99it/s] 
+Extracting ./data_mnist/MNIST/raw/train-images-idx3-ubyte.gz to ./data_mnist/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz to ./data_mnist/MNIST/raw/train-labels-idx1-ubyte.gz
+  0%|          | 0/28881 [00:00<?, ?it/s]100%|██████████| 28881/28881 [00:00<00:00, 576243.93it/s]
+Extracting ./data_mnist/MNIST/raw/train-labels-idx1-ubyte.gz to ./data_mnist/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz to ./data_mnist/MNIST/raw/t10k-images-idx3-ubyte.gz
+  0%|          | 0/1648877 [00:00<?, ?it/s]  6%|▌         | 98304/1648877 [00:00<00:02, 553695.17it/s] 24%|██▍       | 393216/1648877 [00:00<00:01, 1144901.89it/s] 72%|███████▏  | 1179648/1648877 [00:00<00:00, 3228145.44it/s]100%|██████████| 1648877/1648877 [00:00<00:00, 2911152.63it/s]
+Extracting ./data_mnist/MNIST/raw/t10k-images-idx3-ubyte.gz to ./data_mnist/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz to ./data_mnist/MNIST/raw/t10k-labels-idx1-ubyte.gz
+  0%|          | 0/4542 [00:00<?, ?it/s]100%|██████████| 4542/4542 [00:00<00:00, 5321376.75it/s]
+Extracting ./data_mnist/MNIST/raw/t10k-labels-idx1-ubyte.gz to ./data_mnist/MNIST/raw
+
+Dataset loaded: 60000 images
+Verifying model architectures...
+Generator: input torch.Size([4, 200]) -> output torch.Size([4, 1, 28, 28])
+Discriminator: input torch.Size([4, 1, 28, 28]) -> output torch.Size([4, 1])
+✅ Models verified successfully!
+Generator parameters: 2,817,793
+Discriminator parameters: 81,025
+Starting training for 50 epochs...
+Epoch 1/50 | D 0.983 | G 1.084
+Epoch 2/50 | D 0.839 | G 1.255
+Epoch 3/50 | D 0.830 | G 1.308
+Epoch 4/50 | D 0.815 | G 1.344
+Epoch 5/50 | D 0.785 | G 1.405
+Epoch 6/50 | D 0.756 | G 1.458
+Epoch 7/50 | D 0.744 | G 1.506
+Epoch 8/50 | D 0.729 | G 1.546
+Epoch 9/50 | D 0.704 | G 1.590
+Epoch 10/50 | D 0.693 | G 1.630
+Epoch 11/50 | D 0.678 | G 1.659
+Epoch 12/50 | D 0.678 | G 1.695
+Epoch 13/50 | D 0.669 | G 1.720
+Epoch 14/50 | D 0.669 | G 1.734
+Epoch 15/50 | D 0.663 | G 1.745
+Epoch 16/50 | D 0.659 | G 1.771
+Epoch 17/50 | D 0.674 | G 1.770
+Epoch 18/50 | D 0.649 | G 1.806
+Epoch 19/50 | D 0.661 | G 1.808
+Epoch 20/50 | D 0.656 | G 1.818
+Epoch 21/50 | D 0.669 | G 1.817
+slurmstepd: error: *** JOB 27053 ON desktop12 CANCELLED AT 2025-10-19T18:42:51 DUE TO TIME LIMIT ***

@@ -1,0 +1,73 @@
+Requirement already satisfied: torchvision in /home/algh/.local/lib/python3.11/site-packages (0.16.2)
+Requirement already satisfied: numpy in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from torchvision) (1.25.1)
+Requirement already satisfied: requests in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: torch==2.1.2 in /opt/itu/easybuild/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from torchvision) (2.1.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/itu/easybuild/software/Pillow/10.0.0-GCCcore-12.3.0/lib/python3.11/site-packages (from torchvision) (10.0.0)
+Requirement already satisfied: filelock in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.12.2)
+Requirement already satisfied: typing-extensions in /home/algh/.local/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (4.15.0)
+Requirement already satisfied: sympy in /opt/itu/easybuild/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (1.12)
+Requirement already satisfied: networkx in /opt/itu/easybuild/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1)
+Requirement already satisfied: jinja2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (3.1.2)
+Requirement already satisfied: fsspec in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch==2.1.2->torchvision) (2023.6.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch==2.1.2->torchvision) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/itu/easybuild/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->torchvision) (2023.5.7)
+Requirement already satisfied: mpmath>=0.19 in /opt/itu/easybuild/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch==2.1.2->torchvision) (1.3.0)
+/home/algh/.local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/algh/.local/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c106detail23torchInternalAssertFailEPKcS2_jS2_RKSs'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+[CIFAR] Using device: cuda, arch=base, saving to results_cifar_arch/cifar_lrG0.0002_lrD0.0002_z200_bs256_base_20251019_174135
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+  0%|          | 0/170498071 [00:00<?, ?it/s]  0%|          | 65536/170498071 [00:00<07:02, 403817.71it/s]  0%|          | 131072/170498071 [00:00<05:35, 507558.26it/s]  0%|          | 229376/170498071 [00:00<04:10, 678599.81it/s]  0%|          | 458752/170498071 [00:00<02:18, 1224255.28it/s]  1%|          | 884736/170498071 [00:00<01:17, 2184973.38it/s]  1%|          | 1802240/170498071 [00:00<00:39, 4284284.59it/s]  2%|▏         | 3571712/170498071 [00:00<00:20, 8197486.27it/s]  4%|▍         | 6651904/170498071 [00:00<00:11, 14615355.35it/s]  6%|▌         | 9469952/170498071 [00:01<00:08, 18532024.15it/s]  7%|▋         | 11960320/170498071 [00:01<00:07, 20334526.75it/s]  9%|▊         | 14516224/170498071 [00:01<00:07, 21870101.95it/s] 10%|▉         | 16941056/170498071 [00:01<00:06, 22536734.13it/s] 11%|█▏        | 19431424/170498071 [00:01<00:06, 23175918.89it/s] 13%|█▎        | 22151168/170498071 [00:01<00:06, 23808845.56it/s] 15%|█▍        | 25067520/170498071 [00:01<00:06, 24237109.26it/s] 16%|█▋        | 27754496/170498071 [00:01<00:05, 24924957.41it/s] 18%|█▊        | 30277632/170498071 [00:01<00:05, 24802602.07it/s] 19%|█▉        | 32768000/170498071 [00:01<00:05, 24823190.37it/s] 21%|██        | 35258368/170498071 [00:02<00:05, 24783479.37it/s] 22%|██▏       | 37945344/170498071 [00:02<00:05, 25264175.75it/s] 24%|██▍       | 40501248/170498071 [00:02<00:05, 25150647.53it/s] 25%|██▌       | 43024384/170498071 [00:02<00:05, 25074537.32it/s] 27%|██▋       | 45547520/170498071 [00:02<00:05, 24946973.25it/s] 28%|██▊       | 48070656/170498071 [00:02<00:04, 24796553.00it/s] 30%|██▉       | 50659328/170498071 [00:02<00:04, 25081541.20it/s] 31%|███       | 53182464/170498071 [00:02<00:04, 24739590.79it/s] 33%|███▎      | 55672832/170498071 [00:02<00:04, 24563510.02it/s] 34%|███▍      | 58163200/170498071 [00:02<00:04, 24613339.62it/s] 36%|███▌      | 60653568/170498071 [00:03<00:04, 24444180.47it/s] 37%|███▋      | 63176704/170498071 [00:03<00:04, 24603657.68it/s] 39%|███▊      | 65765376/170498071 [00:03<00:04, 24718689.25it/s] 40%|████      | 68452352/170498071 [00:03<00:04, 25209512.71it/s] 42%|████▏     | 70975488/170498071 [00:03<00:03, 24980455.05it/s] 43%|████▎     | 73498624/170498071 [00:03<00:03, 24867552.27it/s] 45%|████▍     | 76054528/170498071 [00:03<00:03, 24856960.92it/s] 46%|████▌     | 78675968/170498071 [00:03<00:03, 25236490.88it/s] 48%|████▊     | 81231872/170498071 [00:03<00:03, 25087182.39it/s] 49%|████▉     | 83755008/170498071 [00:03<00:03, 25095852.97it/s] 51%|█████     | 86278144/170498071 [00:04<00:03, 24940823.45it/s] 52%|█████▏    | 88899584/170498071 [00:04<00:03, 25232006.89it/s] 54%|█████▎    | 91455488/170498071 [00:04<00:03, 24824435.30it/s] 55%|█████▌    | 94142464/170498071 [00:04<00:03, 25410105.44it/s] 57%|█████▋    | 96698368/170498071 [00:04<00:02, 25329509.07it/s] 58%|█████▊    | 99254272/170498071 [00:04<00:02, 25303995.50it/s] 60%|█████▉    | 101810176/170498071 [00:04<00:02, 24785920.20it/s] 61%|██████    | 104398848/170498071 [00:04<00:02, 25025280.07it/s] 63%|██████▎   | 106921984/170498071 [00:04<00:02, 24942952.49it/s] 64%|██████▍   | 109510656/170498071 [00:05<00:02, 24927915.92it/s] 66%|██████▌   | 112132096/170498071 [00:05<00:02, 25169887.83it/s] 67%|██████▋   | 114688000/170498071 [00:05<00:02, 25280985.43it/s] 69%|██████▉   | 117243904/170498071 [00:05<00:02, 25084419.71it/s] 70%|███████   | 119767040/170498071 [00:05<00:02, 25070065.83it/s] 72%|███████▏  | 122421248/170498071 [00:05<00:01, 25384086.82it/s] 73%|███████▎  | 124977152/170498071 [00:05<00:01, 25253598.33it/s] 75%|███████▍  | 127533056/170498071 [00:05<00:01, 25269853.90it/s] 76%|███████▋  | 130088960/170498071 [00:05<00:01, 25113381.44it/s] 78%|███████▊  | 132677632/170498071 [00:05<00:01, 25286822.46it/s] 80%|███████▉  | 135593984/170498071 [00:06<00:01, 26389553.49it/s] 81%|████████  | 138248192/170498071 [00:06<00:01, 26090365.89it/s] 83%|████████▎ | 140869632/170498071 [00:06<00:01, 25635849.44it/s] 84%|████████▍ | 143458304/170498071 [00:06<00:01, 25545582.73it/s] 86%|████████▌ | 146046976/170498071 [00:06<00:00, 25418301.51it/s] 87%|████████▋ | 148733952/170498071 [00:06<00:00, 25832031.52it/s] 89%|████████▉ | 151322624/170498071 [00:06<00:00, 25512603.86it/s] 90%|█████████ | 153878528/170498071 [00:06<00:00, 25509008.11it/s] 92%|█████████▏| 156434432/170498071 [00:06<00:00, 25195683.61it/s] 93%|█████████▎| 159023104/170498071 [00:06<00:00, 25040535.12it/s] 95%|█████████▍| 161906688/170498071 [00:07<00:00, 26147360.79it/s] 96%|█████████▋| 164528128/170498071 [00:07<00:00, 25480959.95it/s] 98%|█████████▊| 167084032/170498071 [00:07<00:00, 25253136.82it/s] 99%|█████████▉| 169639936/170498071 [00:07<00:00, 25341813.61it/s]100%|██████████| 170498071/170498071 [00:07<00:00, 23028473.69it/s]
+Extracting ./data/cifar-10-python.tar.gz to ./data
+Epoch 1/50 | D 1.667 | G 0.915
+Epoch 2/50 | D 1.496 | G 1.086
+Epoch 3/50 | D 1.422 | G 0.926
+Epoch 4/50 | D 1.356 | G 0.881
+Epoch 5/50 | D 1.410 | G 0.791
+Epoch 6/50 | D 1.472 | G 1.001
+Epoch 7/50 | D 1.424 | G 0.843
+Epoch 8/50 | D 1.336 | G 0.878
+Epoch 9/50 | D 1.403 | G 0.832
+Epoch 10/50 | D 1.403 | G 0.864
+Epoch 11/50 | D 1.369 | G 0.801
+Epoch 12/50 | D 1.395 | G 0.914
+Epoch 13/50 | D 1.327 | G 0.974
+Epoch 14/50 | D 1.190 | G 0.992
+Epoch 15/50 | D 1.425 | G 0.886
+Epoch 16/50 | D 1.331 | G 0.901
+Epoch 17/50 | D 1.273 | G 0.880
+Epoch 18/50 | D 1.324 | G 0.882
+Epoch 19/50 | D 1.226 | G 0.904
+Epoch 20/50 | D 1.297 | G 0.886
+Epoch 21/50 | D 1.248 | G 1.077
+Epoch 22/50 | D 1.340 | G 0.833
+Epoch 23/50 | D 1.388 | G 0.892
+Epoch 24/50 | D 1.222 | G 0.999
+Epoch 25/50 | D 1.400 | G 0.933
+Epoch 26/50 | D 1.304 | G 0.895
+Epoch 27/50 | D 1.234 | G 0.904
+Epoch 28/50 | D 1.214 | G 0.950
+Epoch 29/50 | D 1.365 | G 0.821
+Epoch 30/50 | D 1.267 | G 0.813
+Epoch 31/50 | D 1.415 | G 0.847
+Epoch 32/50 | D 1.425 | G 0.851
+Epoch 33/50 | D 1.295 | G 0.996
+Epoch 34/50 | D 1.388 | G 0.836
+Epoch 35/50 | D 1.368 | G 0.783
+Epoch 36/50 | D 1.484 | G 0.800
+Epoch 37/50 | D 1.338 | G 0.887
+Epoch 38/50 | D 1.347 | G 0.957
+Epoch 39/50 | D 1.298 | G 0.807
+Epoch 40/50 | D 1.361 | G 0.786
+Epoch 41/50 | D 1.329 | G 0.829
+Epoch 42/50 | D 1.284 | G 0.901
+Epoch 43/50 | D 1.287 | G 0.944
+Epoch 44/50 | D 1.263 | G 0.931
+Epoch 45/50 | D 1.350 | G 0.859
+Epoch 46/50 | D 1.363 | G 0.910
+Epoch 47/50 | D 1.268 | G 1.042
+Epoch 48/50 | D 1.439 | G 0.924
+Epoch 49/50 | D 1.231 | G 0.880
+Epoch 50/50 | D 1.383 | G 0.981
