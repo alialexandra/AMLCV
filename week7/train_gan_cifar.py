@@ -119,6 +119,19 @@ for epoch in range(epochs):
         plt.savefig(f"{output_dir}/loss_plot_epoch{epoch+1:03d}.png")
         plt.close()
 
+
+        # Plot the loss curves
+        # try this plot out some times
+        # plt.figure(figsize=(10, 5))
+        # plt.title("Generator and Discriminator Loss")
+        # plt.plot(g_losses, label="G Loss")
+        # plt.plot(d_losses, label="D Loss")
+        # plt.xlabel("Iterations")
+        # plt.ylabel("Loss")
+        # plt.legend()
+        # plt.savefig(f'loss_plot_epoch_{epoch+1}.png')
+        # plt.show()
+
         pd.DataFrame({'G_loss':g_losses,'D_loss':d_losses}).to_csv(f"{output_dir}/losses_epoch{epoch+1:03d}.csv",index=False)
 
         torch.save({
