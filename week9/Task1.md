@@ -36,6 +36,11 @@ former operates on a lower-cased byte pair encoding (BPE)
 nrich et al., 2015). For computational efficiency, the max
  sequence length was capped at 76
 
+Question: What it can happen if you increase the context length? from 76 
+capture more information with same data but is harder to compute afterwards 
+
+
+
 Key differences from original Transformer:
 
 - Layer normalization moved to the input of each sub-layer (pre-norm)
@@ -87,6 +92,8 @@ $$
 {\|W_t^\top \mathbf{f}^{\text{txt}}_i\|}
 $$
 
+
+we do normalize so we can compute the cosine similarity, ca sa ne iasa vectorul 1 sau ceva de genul 
 Cosine similarity between image *i* and text *j*:
 
 $$
@@ -98,6 +105,9 @@ $$
 ---
 
 ### 2️ Apply temperature scaling
+
+we apply the temparature scaling to make sure the model is not halucinatting that much 
+is sort of regulator then or???
 
 A learned temperature parameter \(\tau = \exp(t)\) rescales similarities:
 
@@ -141,7 +151,7 @@ $$
 
 $$
 \mathcal{L}_{\text{txt}}
-= -\frac{1}{N}\sum_{i=1}^{N}
+= \frac{1}{N}\sum_{i=1}^{N}
    \log \frac{\exp(\text{logits}_{ii})}
              {\sum_{j=1}^{N}\exp(\text{logits}_{ji})}
 $$
@@ -202,6 +212,8 @@ divergence primarily because the Fréchet distance is
 a true metric, and provides stable and meaningful 
 gradients even when the distributions being compared have 
 little or no overlap, considering mean and covariance.
+
+KL is asymetric 
 KL divergence is a divergence, not a metric. It measures information 
 loss but doesn't give a reliable "distance" in the geometric sense. 
 FID is a true metric that properly captures both the location and shape 
